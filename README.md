@@ -99,7 +99,6 @@ pnpm dev
 | `@teo-garcia/prettier-config-shared` | Prettier formatting |
 | `@teo-garcia/tsconfig-shared`        | TypeScript settings |
 | `@teo-garcia/vitest-config-shared`   | Test configuration  |
-| `@teo-garcia/react-shared`           | React primitives    |
 
 ---
 
