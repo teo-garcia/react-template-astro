@@ -72,6 +72,12 @@
     "node": ">=24"
   },
   "name": "react-template-astro",
+  "pnpm": {
+    "overrides": {
+      "path-to-regexp@6.1.0": "6.3.0",
+      "yaml@2.7.1": "2.8.3"
+    }
+  },
   "private": true,
   "scripts": {
     "analyze": "ANALYZE=true astro build",
