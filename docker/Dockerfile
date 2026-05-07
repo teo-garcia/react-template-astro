@@ -51,7 +51,7 @@ ENV HOST=0.0.0.0
 ENV PORT=4321
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
-    CMD node -e "require('http').get('http://localhost:4321', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
+    CMD node -e "require('http').get('http://localhost:4321/api/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
 
 ENTRYPOINT ["dumb-init", "--"]
-CMD ["node", "./dist/server/entry.mjs"]
+CMD ["node", "./node_modules/astro/bin/astro.mjs", "preview", "--host", "0.0.0.0", "--port", "4321"]

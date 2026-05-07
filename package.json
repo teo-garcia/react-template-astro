@@ -93,7 +93,7 @@
     "lint:ts": "astro check",
     "prepare": "husky",
     "preview": "astro preview",
-    "start": "node ./dist/server/entry.mjs",
+    "start": "astro preview --host 0.0.0.0",
     "test": "vitest",
     "test:browser": "vitest --browser",
     "test:e2e": "playwright test",
