@@ -1,7 +1,7 @@
 ---
-import "~/styles/app.css"
-import { ClientRouter } from "astro:transitions"
-import { Providers } from "~/components/providers"
+import '~/styles/app.css'
+import { ClientRouter } from 'astro:transitions'
+import { Providers } from '~/components/providers'
 
 // eslint-disable-next-line unicorn/prevent-abbreviations -- Astro uses Props by convention
 interface Props {
@@ -9,55 +9,30 @@ interface Props {
   description?: string
 }
 
-const {
-  title,
-  description = "React template powered by Astro",
-} = Astro.props
+const { title, description = 'React template powered by Astro' } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <meta name='description' content={description} />
+    <link rel='icon' href='/favicon.ico' type='image/x-icon' />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Ubuntu:wght@400;700&display=swap"
+      rel='stylesheet'
+      href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Ubuntu:wght@400;700&display=swap'
     />
     <title>{title}</title>
     <ClientRouter />
   </head>
   <body>
     <Providers client:load>
-      <main id="main-content">
+      <main id='main-content'>
         <slot />
       </main>
     </Providers>
-    <script>
-      function resolveTheme(theme: string): string {
-        if (theme === "system") {
-          return globalThis.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light"
-        }
-        return theme
-      }
-
-      function applyTheme() {
-        const stored = localStorage.getItem("theme")
-        const theme = stored ? JSON.parse(stored) : "system"
-        const resolved = resolveTheme(theme)
-
-        document.documentElement.classList.remove("light", "dark")
-        document.documentElement.classList.add(resolved)
-      }
-
-      applyTheme()
-      document.addEventListener("astro:after-swap", applyTheme)
-    </script>
   </body>
 </html>

@@ -1,8 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { render as tlRender, type RenderOptions } from '@testing-library/react'
+import { ThemeProvider } from 'better-themes'
 import { createElement, type ReactNode } from 'react'
-
-import { ThemeProvider } from '~/components/theme-provider'
 
 function createWrapper(queryClient?: QueryClient) {
   const client =
@@ -23,7 +22,7 @@ const QueryWrapper = createWrapper()
 
 const AllProviders = ({ children }: React.PropsWithChildren) => (
   <QueryWrapper>
-    <ThemeProvider defaultTheme='light' storageKey='theme-test'>
+    <ThemeProvider attribute='class' defaultTheme='light'>
       {children}
     </ThemeProvider>
   </QueryWrapper>
